@@ -18,6 +18,8 @@ model_num  = "12179"
 
 filename = model_name + ".20." + model_num + ".gz"
 
+# This filename applies to the example data in the git repository:
+filename = 'dot20_example.dat'
 
 # given a file, desired ion, and level, getbi() returns the bi at each
 # layer in the atmosphere
@@ -25,8 +27,11 @@ filename = model_name + ".20." + model_num + ".gz"
   
 # PHOENIX ouput files are gzipped, so use the gzip module
 # to open them. 'rb' is a mode for reading a binary file.
-f = gzip.open(filename, 'rb')
-  
+#f = gzip.open(filename, 'rb')
+
+# My example data, however, is not gzipped:
+f = open(filename, 'r')
+
 file_content = f.readlines()
 f.close()
   
